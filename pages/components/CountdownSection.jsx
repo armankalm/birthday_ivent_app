@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export default function CountdownSection() {
     const targetDate = new Date("2025-10-25T18:00:00");
 
-    const calculateTimeLeft = () => {
+    // useCallback для мемоизации функции
+    const calculateTimeLeft = useCallback(() => {
         const difference = targetDate - new Date();
-        let timeLeft = {};
-
         if (difference > 0) {
-            timeLeft = {
+            return {
                 days: Math.floor(difference / (1000 * 60 * 60 * 24)),
                 hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                 minutes: Math.floor((difference / 1000 / 60) % 60),
                 seconds: Math.floor((difference / 1000) % 60),
             };
         } else {
-            timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+            return { days: 0, hours: 0, minutes: 0, seconds: 0 };
         }
-
-        return timeLeft;
-    };
+    }, [targetDate]);
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -29,11 +26,10 @@ export default function CountdownSection() {
         }, 1000);
 
         return () => clearInterval(timer);
-    }, []);
+    }, [calculateTimeLeft]); // теперь ESLint не ругается
 
     return (
         <section className="ivent_countdown_section">
-
             <div className="countdown_title">Тойға дейін:</div>
             <div className="countdown_block">
                 <div className="countdown_item">
