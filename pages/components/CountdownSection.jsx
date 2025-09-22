@@ -3,6 +3,8 @@ import React, { useEffect, useState, useCallback } from "react";
 export default function CountdownSection() {
     const targetDate = new Date("2025-10-25T18:00:00");
 
+
+
     // useCallback для мемоизации функции
     const calculateTimeLeft = useCallback(() => {
         const difference = targetDate - new Date();
@@ -27,6 +29,17 @@ export default function CountdownSection() {
 
         return () => clearInterval(timer);
     }, [calculateTimeLeft]); // теперь ESLint не ругается
+
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null; // не рендерим на сервере
+
+// остальной JSX
+
 
     return (
         <section className="ivent_countdown_section">

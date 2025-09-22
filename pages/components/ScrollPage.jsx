@@ -6,7 +6,7 @@ import InvitationStart from "./InvitationStart";
 import CalendarBlock from "./CalendarBlock";
 import CountdownSection from "./CountdownSection";
 import InvitationForm from "./InvitationForm";
-
+import dynamic from "next/dynamic";
 export default function ScrollPage() {
 
 // Достаём параметр name из URL
@@ -38,6 +38,12 @@ export default function ScrollPage() {
             )
             .join(" ");
     };
+
+    // динамический импорт CountdownSection без SSR
+    const CountdownSection = dynamic(
+        () => import("../components/CountdownSection"),
+        { ssr: false }
+    );
 
   return (
     <div className="container ">
