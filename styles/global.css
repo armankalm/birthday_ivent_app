@@ -1,0 +1,471 @@
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ZA:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container {
+  background: url(/assets/background.png);
+  background-size: cover;      /* тянется по ширине/высоте */
+  background-position: center; /* центрирование */
+  background-repeat: no-repeat;
+  min-height: 100vh;           /* минимум 1 экран */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Картинка всегда сверху справа */
+.monkey {
+  position: fixed;
+  top: 16px;     /* отступ сверху */
+  right: 16px;   /* отступ справа */
+  width: 128px;  /* примерно w-32 */
+  height: auto;
+  z-index: 50;   /* поверх всего */
+}
+
+.invitation-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;          /* на весь экран */
+  background: #f1f1e6;    /* нежный оливковый фон */
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #2d2d2d;
+}
+
+.subtitle {
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #444;
+}
+
+.age {
+  font-size: 5rem;
+  margin-top: 40px;
+  font-weight: bold;
+  color: #8b5cf6; /* красивый фиолетовый акцент */
+}
+
+.title1, .title2 , .title3{
+  font-family: "Ventura", cursive;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.title1 {
+
+  margin-top: 60px;
+  font-size: 60px;
+}
+
+.title2 {
+  margin-top: 60px;
+}
+
+.title2, .title3 {
+  font-size: 36px;
+}
+
+
+section {
+  font-family: "Ventura", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  margin-top: 50px;
+  line-height: 37px;
+
+}
+
+.ivent_name {
+  font-family: "Ventura", cursive;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 39px;
+  line-height: 60px;
+
+}
+
+.ivent_text_2 {
+  margin-top: 80px;
+}
+
+.monkey_img {
+  width: 150px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.one_img {
+  margin-top: 20px;
+  width: 250px;
+  animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes sway {
+  0% { transform: rotate(0deg) translateY(0px); }
+  25% { transform: rotate(2deg) translateY(-10px); }
+  50% { transform: rotate(0deg) translateY(0px); }
+  75% { transform: rotate(-2deg) translateY(-10px); }
+  100% { transform: rotate(0deg) translateY(0px); }
+}
+
+
+.ivent_footer_section {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.ivent_footer_text {
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  margin-top: 50px;
+}
+
+.ivent_form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form_group {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form_group input[type="text"] {
+  width: 50%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.checkbox_group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ivent_button {
+  display: block;
+  width: 50%;
+  padding: 12px;
+  background: #6aaf50;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 0 auto;
+  font-family: "Ventura", cursive;
+}
+
+.ivent_button:hover {
+  background: #55993f;
+}
+
+.birthday-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: url("/assets/start_page/backfull.png") no-repeat center center;
+  background-size: cover;   /* всегда растягивается под экран */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.birthday-content {
+  color: #333;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  z-index: 2;
+}
+
+.ivent_masters_text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+
+.ivent_calendar_section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.ivent_calendar_title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ivent_calendar_date {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.calendar {
+  display: inline-block;
+  background: linear-gradient(135deg, #f0f9ff, #cbebff);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.calendar-header {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  gap: 8px;
+  justify-content: center;
+}
+
+.day-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.day {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.highlight {
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+}
+
+.highlight {
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+
+@keyframes pulse2 {
+  0% {
+    transform: scale(1);
+
+  }
+  50% {
+    transform: scale(1.1);
+
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ivent_countdown_section {
+  text-align: center;
+  padding: 20px 10px;
+  background: linear-gradient(135deg, #f0f9ff, #cbebff);
+  border-radius: 20px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.countdown_title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.countdown_block {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.countdown_item {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 18px;
+}
+
+.countdown_item span {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+@font-face {
+  font-family: 'Ventura';
+  src: url("/fonts/Ventura Script.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ivent_guest_name {
+  font-weight: bold;
+  color: #2e7d32; /* зелёный акцент */
+  font-size: 1.8rem;
+  text-transform: capitalize; /* дополнительная защита */
+}
+
+.one_num_img {
+  width: 250px;
+  margin-top: 50px;
+  animation: pulse2 2s infinite ease-in-out;
+}
+.music-wrapper {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.music-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.circle-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #005792;
+  font-family: "Ventura", cursive;
+}
+
+.circle-text span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0; /* центр текста в центре контейнера */
+}
+
+.spinning {
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
