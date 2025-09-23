@@ -9,13 +9,13 @@ import InvitationForm from "./InvitationForm";
 import dynamic from "next/dynamic";
 export default function ScrollPage() {
 
-// Достаём параметр name из URL
+    // Достаём параметр name из URL
     const [guestName, setGuestName] = useState("қонақ");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             const queryParams = new URLSearchParams(window.location.search);
-            const name = queryParams.get("name") || "қонақ";
+            const name = queryParams.get("name");
             setGuestName(formatName(name));
         }
     }, []);
@@ -25,19 +25,20 @@ export default function ScrollPage() {
         if (!name) return "";
 
         return name
-            .split(" ") // делим по пробелу
+            .split(" ") // делим по пробелам
             .map((word) =>
                 word
-                    .split("-") // делим по дефису
-                    .map(
-                        (part) =>
-                            part.charAt(0).toUpperCase() +
-                            part.slice(1).toLowerCase()
+                    .split("-") // делим по дефисам
+                    .map((part, index) =>
+                        index === 0 // только первое слово или после дефиса
+                            ? part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()
+                            : part // остальные части оставляем как есть
                     )
                     .join("-")
             )
             .join(" ");
     };
+
 
     // динамический импорт CountdownSection без SSR
     const CountdownSection = dynamic(
@@ -51,9 +52,23 @@ export default function ScrollPage() {
         <InvitationStart />
         <section className="ivent_text_section">
             <div className="ivent_text">
-                Құрметті,
-                <br/>
-                <span className="ivent_guest_name">{formatName(guestName)}</span>
+                {guestName ? (
+                    <>
+                        <span>Құрметті,</span>
+                        <br />
+                        <span className="ivent_guest_name">{formatName(guestName)}</span>
+                    </>
+                ) : (
+                    <>
+                        <span>Құрметті ағайын-туыс,</span>
+                        <br />
+                        <span>нағашы-жиен, құда-жекжат,</span>
+                        <br />
+                        <span>дос-жаран, әріптестер!</span>
+                    </>
+                )}
+
+
             </div>
             <div className="ivent_text_2">
                 Сіздерді немереміз

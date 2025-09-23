@@ -410,7 +410,6 @@ section {
   font-weight: bold;
   color: #2e7d32; /* зелёный акцент */
   font-size: 1.8rem;
-  text-transform: capitalize; /* дополнительная защита */
 }
 
 .one_num_img {
